@@ -1,5 +1,6 @@
 import React from "react";
-import { Text } from "react-native";
+import { View, StyleSheet } from "react-native";
+import { Card, Text as NativeText } from "react-native-paper";
 
 export const RestaurantInfo = ({ restaurant = {} }) => {
   const {
@@ -13,5 +14,32 @@ export const RestaurantInfo = ({ restaurant = {} }) => {
     rating = 4,
     isClosedTemporarily,
   } = restaurant;
-  return <Text> {name} </Text>;
+  return (
+    <View>
+      <Card elevation={5} style={styles.card}>
+        <Card.Cover key={name} source={{ uri: photos[0] }} />
+        <Card.Content>
+          <NativeText style={styles.title} variant="titleLarge">
+            {name}
+          </NativeText>
+        </Card.Content>
+      </Card>
+    </View>
+  );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  card: {
+    backgroundColor: "white",
+  },
+  cover: {
+    padding: 20,
+    backgroundColor: "white",
+  },
+  title: {
+    padding: 16,
+  },
+});
