@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 export const SafeArea = styled(SafeAreaView)`
   flex: 1;
-  margintop: ${StatusBar.currentHeight}px;
+  ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`};
 `;
 
 export const SearchView = styled(View)`
