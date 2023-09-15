@@ -1,6 +1,12 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
+import styled from "styled-components";
 import { Card, Text as NativeText } from "react-native-paper";
+import {
+  CardTitle,
+  RestaurantCard,
+  RestaurantCardCover,
+} from "../../../utils/restaurant-card-styles";
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
@@ -16,30 +22,12 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
   } = restaurant;
   return (
     <View>
-      <Card elevation={5} style={styles.card}>
-        <Card.Cover key={name} source={{ uri: photos[0] }} />
+      <RestaurantCard elevation={5}>
+        <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
         <Card.Content>
-          <NativeText style={styles.title} variant="titleLarge">
-            {name}
-          </NativeText>
+          <CardTitle>{name}</CardTitle>
         </Card.Content>
-      </Card>
+      </RestaurantCard>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  card: {
-    backgroundColor: "white",
-  },
-  cover: {
-    padding: 20,
-    backgroundColor: "white",
-  },
-  title: {
-    padding: 16,
-  },
-});
