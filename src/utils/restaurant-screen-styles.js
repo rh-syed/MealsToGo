@@ -1,11 +1,10 @@
 import React from "react";
-import { View, SafeAreaView } from "react-native";
+import { View, SafeAreaView, StatusBar } from "react-native";
 import styled from "styled-components";
-import { StatusBarHeight } from "./statusbarheight";
 
-export const AreaView = styled(SafeAreaView)`
+export const SafeArea = styled(SafeAreaView)`
   flex: 1;
-  margintop: ${StatusBarHeight}px;
+  margintop: ${StatusBar.currentHeight}px;
 `;
 
 export const SearchView = styled(View)`
@@ -14,6 +13,6 @@ export const SearchView = styled(View)`
 
 export const ListView = styled(View)`
   flex: 1;
-  background-color: blue;
+  background-color: yellow;
   padding: 16px;
 `;
