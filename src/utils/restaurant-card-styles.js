@@ -4,15 +4,15 @@ import styled from "styled-components";
 import { Card, Text as NativeText } from "react-native-paper";
 
 export const CardTitle = styled.Text`
-  padding: 16px;
-  color: purple;
+  padding: ${(props) => props.theme.space[3]};
+  color: ${(props) => props.theme.colors.ui.primary};
 `;
 
 export const RestaurantCard = styled(Card)`
-  backgroundcolor: white;
+  backgroundcolor: ${(props) => props.theme.colors.ui.quaternary};
 `;
 
 export const RestaurantCardCover = styled(Card.Cover)`
-  padding: 20px;
-  backgroundcolor: white;
+  padding: ${(props) => props.theme.space[3]};
+  backgroundcolor: ${(props) => props.theme.colors.ui.quaternary};
 `;
