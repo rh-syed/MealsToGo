@@ -3,6 +3,11 @@ import { View, StyleSheet, Text } from "react-native";
 import styled from "styled-components";
 import { Card } from "react-native-paper";
 
+export const Rating = styled(View)`
+  flex-direction: row;
+  padding-top: ${(props) => props.theme.space[2]};
+  padding-bottom: ${(props) => props.theme.space[2]};
+`;
 export const Address = styled(Text)`
   font-family: ${(props) => props.theme.fonts.body};
   font-size: ${(props) => props.theme.fontSizes.caption};

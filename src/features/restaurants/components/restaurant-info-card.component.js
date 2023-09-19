@@ -2,12 +2,15 @@ import React from "react";
 import { View, StyleSheet } from "react-native";
 import styled from "styled-components";
 import { Card, Text as NativeText } from "react-native-paper";
+import { SvgXml } from "react-native-svg";
+import star from "../../../../assets/star";
 import {
   CardTitle,
   RestaurantCard,
   RestaurantCardCover,
   RestaurantCardContent,
   Address,
+  Rating,
 } from "../../../utils/restaurant-card-styles";
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
@@ -22,12 +25,19 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     rating = 4,
     isClosedTemporarily,
   } = restaurant;
+
+  const ratingArray = Array.from(new Array(Math.floor(rating)));
   return (
     <View>
       <RestaurantCard elevation={5}>
         <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
         <RestaurantCardContent>
           <CardTitle>{name}</CardTitle>
+          <Rating>
+            {ratingArray.map(() => (
+              <SvgXml xml={star} width={20} height={20} />
+            ))}
+          </Rating>
           <Address>{address}</Address>
         </RestaurantCardContent>
       </RestaurantCard>
