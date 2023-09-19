@@ -19,14 +19,14 @@ export const CardTitle = styled.Text`
 `;
 
 export const RestaurantCardContent = styled(View)`
-  backgroundcolor: ${(props) => props.theme.colors.ui.quaternary};
+  background-color: ${(props) => props.theme.colors.ui.quaternary};
   padding: ${(props) => props.theme.space[3]};
 `;
 export const RestaurantCard = styled(Card)`
-  backgroundcolor: ${(props) => props.theme.colors.ui.quaternary};
+  background-color: ${(props) => props.theme.colors.ui.quaternary};
 `;
 
 export const RestaurantCardCover = styled(Card.Cover)`
   padding: ${(props) => props.theme.space[3]};
-  backgroundcolor: ${(props) => props.theme.colors.ui.quaternary};
+  background-color: ${(props) => props.theme.colors.ui.quaternary};
 `;
