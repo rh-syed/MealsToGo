@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Card, Text as NativeText } from "react-native-paper";
 import { SvgXml } from "react-native-svg";
 import star from "../../../../assets/star";
+import open from "../../../../assets/open";
 import {
   CardTitle,
   RestaurantCard,
@@ -11,6 +12,8 @@ import {
   RestaurantCardContent,
   Address,
   Rating,
+  OpenXML,
+  RatingAndOpenView,
 } from "../../../utils/restaurant-card-styles";
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
@@ -33,11 +36,14 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
         <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
         <RestaurantCardContent>
           <CardTitle>{name}</CardTitle>
-          <Rating>
-            {ratingArray.map(() => (
-              <SvgXml xml={star} width={20} height={20} />
-            ))}
-          </Rating>
+          <RatingAndOpenView>
+            <Rating>
+              {ratingArray.map(() => (
+                <SvgXml xml={star} width={20} height={20} />
+              ))}
+            </Rating>
+            {isOpenNow && <OpenXML xml={open} />}
+          </RatingAndOpenView>
           <Address>{address}</Address>
         </RestaurantCardContent>
       </RestaurantCard>
