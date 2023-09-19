@@ -6,6 +6,8 @@ import {
   CardTitle,
   RestaurantCard,
   RestaurantCardCover,
+  RestaurantCardContent,
+  Address,
 } from "../../../utils/restaurant-card-styles";
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
@@ -24,9 +26,10 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     <View>
       <RestaurantCard elevation={5}>
         <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
-        <Card.Content>
+        <RestaurantCardContent>
           <CardTitle>{name}</CardTitle>
-        </Card.Content>
+          <Address>{address}</Address>
+        </RestaurantCardContent>
       </RestaurantCard>
     </View>
   );
