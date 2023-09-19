@@ -13,6 +13,5 @@ export const SearchView = styled(View)`
 
 export const ListView = styled(View)`
   flex: ${(props) => props.theme.flex};
-  background-color: ${(props) => props.theme.colors.ui.error};
   padding: ${(props) => props.theme.space[3]};
 `;
