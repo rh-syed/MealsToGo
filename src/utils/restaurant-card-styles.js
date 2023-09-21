@@ -23,10 +23,6 @@ export const ClosedText = styled(Text)`
   color: ${(props) => props.theme.colors.ui.error};
 `;
 
-export const SpacingView16 = styled(View)`
-  padding-left: ${(props) => props.theme.space[3]};
-`;
-
 export const RestaurantIconStyle = styled(Image)`
   width: ${(props) => props.theme.space[3]};
   height: ${(props) => props.theme.space[3]};
@@ -48,10 +44,6 @@ export const RestaurantCardContent = styled(View)`
 `;
 export const RestaurantCard = styled(Card)`
   background-color: ${(props) => props.theme.colors.ui.quaternary};
-`;
-
-export const OpenXML = styled(SvgXml)`
-  flex: 0.05;
 `;
 
 export const RatingAndOpenView = styled(View)`
