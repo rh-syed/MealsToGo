@@ -3,16 +3,14 @@ import { View } from "react-native";
 import { SvgXml } from "react-native-svg";
 import star from "../../../../assets/star";
 import open from "../../../../assets/open";
+import { Text as TypographyText } from "../../../components/typography/text.component";
 import {
-  CardTitle,
   RestaurantCard,
   RestaurantCardCover,
   RestaurantCardContent,
-  Address,
   Rating,
   Section,
   SectionEnd,
-  ClosedText,
   RestaurantIconStyle,
 } from "../../../utils/restaurant-card-styles";
 import { Spacer } from "../../../components/spacer/spacer.component";
@@ -35,7 +33,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
       <RestaurantCard elevation={5}>
         <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
         <RestaurantCardContent>
-          <CardTitle>{name}</CardTitle>
+          <TypographyText variant="label">{name}</TypographyText>
           <Section>
             <Rating>
               {ratingArray.map(() => (
@@ -44,7 +42,9 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
             </Rating>
             <SectionEnd>
               {isClosedTemporarily && (
-                <ClosedText variant="label">CLOSED TEMPORARILY</ClosedText>
+                <TypographyText variant="error">
+                  CLOSED TEMPORARILY
+                </TypographyText>
               )}
               <Spacer position="left" size="large" />
               {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
@@ -52,7 +52,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
               <RestaurantIconStyle source={{ uri: icon }} />
             </SectionEnd>
           </Section>
-          <Address>{address}</Address>
+          <TypographyText variant="caption">{address}</TypographyText>
         </RestaurantCardContent>
       </RestaurantCard>
     </View>
