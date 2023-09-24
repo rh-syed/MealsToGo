@@ -1,5 +1,5 @@
 import React from "react";
-import { View, SafeAreaView, StatusBar } from "react-native";
+import { View, SafeAreaView, StatusBar, FlatList } from "react-native";
 import styled from "styled-components";
 
 export const SafeArea = styled(SafeAreaView)`
@@ -11,7 +11,8 @@ export const SearchView = styled(View)`
   padding: ${(props) => props.theme.space[3]};
 `;
 
-export const ListView = styled(View)`
-  flex: ${(props) => props.theme.flex};
-  padding: ${(props) => props.theme.space[3]};
-`;
+export const ListView = styled(FlatList).attrs({
+  contentContainerStyle: {
+    padding: 16,
+  },
+})``;
