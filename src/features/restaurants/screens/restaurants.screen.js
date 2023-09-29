@@ -1,30 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Searchbar } from "react-native-paper";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
 import { SearchView, ListView } from "../../../utils/restaurant-screen-styles";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { SafeArea } from "../../../utils/safe-area.utils";
-export const RestaurantScreen = () => (
-  <SafeArea>
-    <SearchView>
-      <Searchbar placeholder="Search" />
-    </SearchView>
-    <ListView
-      data={[
-        { name: 1 },
-        { name: 2 },
-        { name: 3 },
-        { name: 4 },
-        { name: 5 },
-        { name: 6 },
-        { name: 7 },
-      ]}
-      keyExtractor={(item) => item.name}
-      renderItem={() => (
-        <Spacer position="bottom" size="large">
-          <RestaurantInfoCard />
-        </Spacer>
-      )}
-    />
-  </SafeArea>
-);
+import { RestaurantContext } from "../../../services/restaurants/restaurants.context";
+
+export const RestaurantScreen = () => {
+  const { isLoading, error, restaurants } = useContext(RestaurantContext);
+  return (
+    <SafeArea>
+      <SearchView>
+        <Searchbar placeholder="Search" />
+      </SearchView>
+      <ListView
+        data={restaurants}
+        keyExtractor={(item) => item.name}
+        renderItem={({ item }) => (
+          <Spacer position="bottom" size="large">
+            <RestaurantInfoCard restaurant={item} />
+          </Spacer>
+        )}
+      />
+    </SafeArea>
+  );
+};
