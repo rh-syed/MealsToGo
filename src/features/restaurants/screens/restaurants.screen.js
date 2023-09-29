@@ -1,7 +1,12 @@
 import React, { useContext } from "react";
 import { Searchbar } from "react-native-paper";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
-import { SearchView, ListView } from "../../../utils/restaurant-screen-styles";
+import {
+  SearchView,
+  ListView,
+  ActivityIndicatorView,
+  ActivityIndicatorAttr,
+} from "../../../utils/restaurant-screen-styles";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { SafeArea } from "../../../utils/safe-area.utils";
 import { RestaurantContext } from "../../../services/restaurants/restaurants.context";
@@ -13,6 +18,12 @@ export const RestaurantScreen = () => {
       <SearchView>
         <Searchbar placeholder="Search" />
       </SearchView>
+      {isLoading && (
+        <ActivityIndicatorView>
+          <ActivityIndicatorAttr animating={isLoading} />
+        </ActivityIndicatorView>
+      )}
+
       <ListView
         data={restaurants}
         keyExtractor={(item) => item.name}
