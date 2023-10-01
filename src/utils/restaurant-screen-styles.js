@@ -8,7 +8,7 @@ export const SearchView = styled(View)`
   padding: ${(props) => props.theme.space[3]};
 `;
 
-export const ActivityIndicatLoaorView = styled(View)`
+export const ActivityIndicatorView = styled(View)`
   position: "absolute";
   top: 50%;
   bottom: 50%;
