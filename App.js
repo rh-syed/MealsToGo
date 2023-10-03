@@ -28,6 +28,14 @@ const createScreenOptions = ({ route }) => {
     tabBarIcon: ({ size, color }) => (
       <Ionicons name={iconName} size={size} color={color} />
     ),
+    tabBarActiveTintColor: theme.colors.ui.error,
+    tabBarInactiveTintColor: theme.colors.ui.disabled,
+    tabBarStyle: [
+      {
+        display: "flex",
+      },
+      null,
+    ],
   };
 };
 const TAB = createBottomTabNavigator();
@@ -49,13 +57,7 @@ export default function App() {
         <LocationContextProvider>
           <RestaurantContextProvider>
             <NavigationContainer>
-              <TAB.Navigator
-                screenOptions={createScreenOptions}
-                tabBarOptions={{
-                  activeTintColor: "tomato",
-                  inactiveTintColor: "gray",
-                }}
-              >
+              <TAB.Navigator screenOptions={createScreenOptions}>
                 <TAB.Screen name="Restaurants" component={RestaurantScreen} />
                 <TAB.Screen name="Map" component={MapScreen} />
                 <TAB.Screen name="Settings" component={SettingScreen} />
