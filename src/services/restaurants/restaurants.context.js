@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  createContext,
-  useEffect,
-  useMemo,
-  useContext,
-} from "react";
+import React, { useState, createContext, useEffect, useContext } from "react";
 import {
   restaurantsRequest,
   restaurantsTransform,
@@ -30,9 +24,9 @@ export const RestaurantContextProvider = ({ children }) => {
           console.log(results.length);
           setRestaurants(results);
         })
-        .catch((error) => {
+        .catch((err) => {
           setLoading(false);
-          setError(error);
+          setError(err);
         });
     }, 2000);
   };
