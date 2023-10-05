@@ -11,7 +11,7 @@ import { RestaurantContext } from "../../../services/restaurants/restaurants.con
 import { Search } from "../components/search.component";
 
 export const RestaurantScreen = () => {
-  const { isLoading, error, restaurants } = useContext(RestaurantContext);
+  const { isLoading, restaurants } = useContext(RestaurantContext);
   return (
     <SafeArea>
       <Search />
