@@ -1,5 +1,4 @@
-import React from "react";
-import { View, SafeAreaView, StatusBar, FlatList } from "react-native";
+import { View, FlatList } from "react-native";
 import { ActivityIndicator } from "react-native-paper";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import styled from "styled-components";
