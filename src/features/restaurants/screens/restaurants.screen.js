@@ -5,12 +5,14 @@ import {
   ActivityIndicatorView,
   ActivityIndicatorAttr,
 } from "../../../utils/restaurant-screen-styles";
+import { Pressable } from "react-native";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { SafeArea } from "../../../utils/safe-area.utils";
 import { RestaurantContext } from "../../../services/restaurants/restaurants.context";
 import { Search } from "../components/search.component";
 
-export const RestaurantScreen = () => {
+export const RestaurantScreen = ({ navigation }) => {
+  console.log(navigation);
   const { isLoading, restaurants } = useContext(RestaurantContext);
   return (
     <SafeArea>
@@ -25,9 +27,15 @@ export const RestaurantScreen = () => {
         data={restaurants}
         keyExtractor={(item) => item.name}
         renderItem={({ item }) => (
-          <Spacer position="bottom" size="large">
-            <RestaurantInfoCard restaurant={item} />
-          </Spacer>
+          <Pressable
+            onPress={() => {
+              navigation.navigate("RestaurantDetail");
+            }}
+          >
+            <Spacer position="bottom" size="large">
+              <RestaurantInfoCard restaurant={item} />
+            </Spacer>
+          </Pressable>
         )}
       />
     </SafeArea>
