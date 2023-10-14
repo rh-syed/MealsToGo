@@ -5,7 +5,7 @@ import {
   ActivityIndicatorView,
   ActivityIndicatorAttr,
 } from "../../../utils/restaurant-screen-styles";
-import { Pressable } from "react-native";
+import { TouchableOpacity } from "react-native";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { SafeArea } from "../../../utils/safe-area.utils";
 import { RestaurantContext } from "../../../services/restaurants/restaurants.context";
@@ -27,7 +27,7 @@ export const RestaurantScreen = ({ navigation }) => {
         data={restaurants}
         keyExtractor={(item) => item.name}
         renderItem={({ item }) => (
-          <Pressable
+          <TouchableOpacity
             onPress={() => {
               navigation.navigate("RestaurantDetail");
             }}
@@ -35,7 +35,7 @@ export const RestaurantScreen = ({ navigation }) => {
             <Spacer position="bottom" size="large">
               <RestaurantInfoCard restaurant={item} />
             </Spacer>
-          </Pressable>
+          </TouchableOpacity>
         )}
       />
     </SafeArea>
