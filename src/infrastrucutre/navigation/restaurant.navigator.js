@@ -3,7 +3,6 @@ import {
   TransitionPresets,
 } from "@react-navigation/stack";
 import React from "react";
-import { Text } from "react-native";
 import { RestaurantScreen } from "../../features/restaurants/screens/restaurants.screen";
 import { RestaurantDetailScreen } from "../../features/restaurants/screens/restaurant.details.screen";
 
