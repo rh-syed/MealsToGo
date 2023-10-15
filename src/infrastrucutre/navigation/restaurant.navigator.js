@@ -5,6 +5,7 @@ import {
 import React from "react";
 import { Text } from "react-native";
 import { RestaurantScreen } from "../../features/restaurants/screens/restaurants.screen";
+import { RestaurantDetailScreen } from "../../features/restaurants/screens/restaurant.details.screen";
 
 const RestaurantStack = createStackNavigator();
 
@@ -17,9 +18,7 @@ export const RestaurantsNavigator = () => {
       <RestaurantStack.Screen name="Restaurants" component={RestaurantScreen} />
       <RestaurantStack.Screen
         name="RestaurantDetail"
-        component={() => {
-          return <Text>RestaurantDetail</Text>;
-        }}
+        component={RestaurantDetailScreen}
       />
     </RestaurantStack.Navigator>
   );
