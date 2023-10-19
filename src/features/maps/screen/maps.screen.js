@@ -4,7 +4,8 @@ import { MapSearch } from "../components/map.search.component";
 import { SafeArea } from "../../../utils/safe-area.utils";
 import { LocationContext } from "../../../services/location/location.context";
 import { RestaurantContext } from "../../../services/restaurants/restaurants.context";
-import { Marker } from "react-native-maps";
+import { Callout, Marker } from "react-native-maps";
+import { MapCallOut } from "../components/map-callout.component";
 export const MapScreen = () => {
   const { location } = useContext(LocationContext);
   const { restaurants = [] } = useContext(RestaurantContext);
@@ -39,7 +40,11 @@ export const MapScreen = () => {
                 latitude: restaurant.geometry.location.lat,
                 longitude: restaurant.geometry.location.lng,
               }}
-            />
+            >
+              <Callout>
+                <MapCallOut restaurant={restaurant} />
+              </Callout>
+            </Marker>
           );
         })}
       </Map>
