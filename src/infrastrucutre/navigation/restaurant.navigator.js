@@ -5,6 +5,7 @@ import {
 import React from "react";
 import { RestaurantScreen } from "../../features/restaurants/screens/restaurants.screen";
 import { RestaurantDetailScreen } from "../../features/restaurants/screens/restaurant.details.screen";
+import { RESTAURANT_DETAILS } from "./utils/navigation-keys";
 
 const RestaurantStack = createStackNavigator();
 
@@ -15,7 +16,7 @@ export const RestaurantsNavigator = () => {
     >
       <RestaurantStack.Screen name="Restaurants" component={RestaurantScreen} />
       <RestaurantStack.Screen
-        name="RestaurantDetail"
+        name={RESTAURANT_DETAILS}
         component={RestaurantDetailScreen}
       />
     </RestaurantStack.Navigator>
