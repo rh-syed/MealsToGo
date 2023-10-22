@@ -9,9 +9,11 @@ const FavoritesBarContainer = styled(View)`
   padding: 10px;
 `;
 export const FavoritesBar = ({ favorites, onNavigate }) => {
+  console.log("Favorites Bar Favs ", favorites);
   if (!favorites.length) {
     return null;
   }
+
   return (
     <FavoritesBarContainer>
       <Spacer position="left" size="medium">
