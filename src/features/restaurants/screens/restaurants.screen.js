@@ -11,9 +11,11 @@ import { SafeArea } from "../../../utils/safe-area.utils";
 import { RestaurantContext } from "../../../services/restaurants/restaurants.context";
 import { Search } from "../components/search.component";
 import { FavoritesBar } from "../../../components/favorites/favorites-bar.component";
+import { FavoritesContext } from "../../../services/favorites/favorite.context";
 
 export const RestaurantScreen = ({ navigation }) => {
   const { isLoading, restaurants } = useContext(RestaurantContext);
+  const { favorites } = useContext(FavoritesContext);
   const [isToggled, setToggled] = useState(false);
   return (
     <SafeArea>
@@ -21,7 +23,9 @@ export const RestaurantScreen = ({ navigation }) => {
         isFavoritesToggled={isToggled}
         onFavoritesToggled={() => setToggled(!isToggled)}
       />
-      {isToggled && <FavoritesBar />}
+      {isToggled && (
+        <FavoritesBar favorites={favorites} onNavigate={navigation.navigate} />
+      )}
       {isLoading && (
         <ActivityIndicatorView>
           <ActivityIndicatorAttr animating={isLoading} />
