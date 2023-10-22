@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
 import {
   ListView,
@@ -10,12 +10,18 @@ import { Spacer } from "../../../components/spacer/spacer.component";
 import { SafeArea } from "../../../utils/safe-area.utils";
 import { RestaurantContext } from "../../../services/restaurants/restaurants.context";
 import { Search } from "../components/search.component";
+import { FavoritesBar } from "../../../components/favorites/favorites-bar.component";
 
 export const RestaurantScreen = ({ navigation }) => {
   const { isLoading, restaurants } = useContext(RestaurantContext);
+  const [isToggled, setToggled] = useState(false);
   return (
     <SafeArea>
-      <Search />
+      <Search
+        isFavoritesToggled={isToggled}
+        onFavoritesToggled={() => setToggled(!isToggled)}
+      />
+      {isToggled && <FavoritesBar />}
       {isLoading && (
         <ActivityIndicatorView>
           <ActivityIndicatorAttr animating={isLoading} />
