@@ -8,8 +8,8 @@ import {
 } from "../../utils/map-screen-styles";
 
 const isAndroid = Platform.OS === "android";
-export const CompactRestaurantInfo = ({ restaurant }) => {
-  const CalloutImage = isAndroid ? CompactWebView : CompactImage;
+export const CompactRestaurantInfo = ({ restaurant, isMap }) => {
+  const CalloutImage = isAndroid && isMap ? CompactWebView : CompactImage;
   return (
     <CompactItem>
       <CalloutImage source={{ uri: restaurant.photos[0] }} />
