@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Spacer } from "../spacer/spacer.component";
 import { Text as TypographyText } from "../../components/typography/text.component";
 import { CompactRestaurantInfo } from "../restaurant/compact-restaurant-info.component";
-import { RESTAURANT_DETAILS } from "../../infrastrucutre/navigation/utils/navigation-keys";
+import { NAV_KEY_RESTAURANT_DETAILS } from "../../infrastrucutre/navigation/utils/navigation-keys";
 const FavoritesBarContainer = styled(View)`
   padding: 10px;
 `;
@@ -27,7 +27,7 @@ export const FavoritesBar = ({ favorites, onNavigate }) => {
             <Spacer key={key} position="left" size="medium">
               <TouchableOpacity
                 onPress={() => {
-                  onNavigate("RestaurantDetail", {
+                  onNavigate(NAV_KEY_RESTAURANT_DETAILS, {
                     restaurant,
                   });
                 }}

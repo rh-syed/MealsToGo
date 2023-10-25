@@ -5,7 +5,10 @@ import {
 import React from "react";
 import { RestaurantScreen } from "../../features/restaurants/screens/restaurants.screen";
 import { RestaurantDetailScreen } from "../../features/restaurants/screens/restaurant.details.screen";
-import { RESTAURANT_DETAILS } from "./utils/navigation-keys";
+import {
+  NAV_KEY_RESTAURANT_DETAILS,
+  NAV_KEY_RESTAURANTS_SCREEN,
+} from "./utils/navigation-keys";
 
 const RestaurantStack = createStackNavigator();
 
@@ -14,9 +17,12 @@ export const RestaurantsNavigator = () => {
     <RestaurantStack.Navigator
       screenOptions={{ ...TransitionPresets.ModalPresentationIOS }}
     >
-      <RestaurantStack.Screen name="Restaurants" component={RestaurantScreen} />
       <RestaurantStack.Screen
-        name={RESTAURANT_DETAILS}
+        name={NAV_KEY_RESTAURANTS_SCREEN}
+        component={RestaurantScreen}
+      />
+      <RestaurantStack.Screen
+        name={NAV_KEY_RESTAURANT_DETAILS}
         component={RestaurantDetailScreen}
       />
     </RestaurantStack.Navigator>

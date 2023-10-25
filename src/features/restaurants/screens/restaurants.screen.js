@@ -12,6 +12,7 @@ import { RestaurantContext } from "../../../services/restaurants/restaurants.con
 import { Search } from "../components/search.component";
 import { FavoritesBar } from "../../../components/favorites/favorites-bar.component";
 import { FavoritesContext } from "../../../services/favorites/favorite.context";
+import { NAV_KEY_RESTAURANT_DETAILS } from "../../../infrastrucutre/navigation/utils/navigation-keys";
 
 export const RestaurantScreen = ({ navigation }) => {
   const { isLoading, restaurants } = useContext(RestaurantContext);
@@ -38,7 +39,9 @@ export const RestaurantScreen = ({ navigation }) => {
         renderItem={({ item }) => (
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("RestaurantDetail", { restaurant: item });
+              navigation.navigate(NAV_KEY_RESTAURANT_DETAILS, {
+                restaurant: item,
+              });
             }}
           >
             <Spacer position="bottom" size="large">
