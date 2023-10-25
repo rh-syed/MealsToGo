@@ -1,11 +1,15 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { NavigationContainer } from "@react-navigation/native";
 import { theme } from "../theme";
 import { Ionicons } from "@expo/vector-icons";
 import { MapScreen } from "../../features/maps/screen/maps.screen";
 import { SettingScreen } from "../../features/restaurants/screens/settings.screen";
 import { RestaurantsNavigator } from "./restaurant.navigator";
+import {
+  NAV_KEY_MAP_SCREEN,
+  NAV_KEY_RESTAURANTS_SCREEN,
+  NAV_KEY_SETTINGS_SCREEN,
+} from "./utils/navigation-keys";
 
 const TAB = createBottomTabNavigator();
 
@@ -34,11 +38,12 @@ const createScreenOptions = ({ route }) => {
 };
 
 export const AppNavigator = () => (
-  <NavigationContainer>
-    <TAB.Navigator screenOptions={createScreenOptions}>
-      <TAB.Screen name="Restaurants" component={RestaurantsNavigator} />
-      <TAB.Screen name="Map" component={MapScreen} />
-      <TAB.Screen name="Settings" component={SettingScreen} />
-    </TAB.Navigator>
-  </NavigationContainer>
+  <TAB.Navigator screenOptions={createScreenOptions}>
+    <TAB.Screen
+      name={NAV_KEY_RESTAURANTS_SCREEN}
+      component={RestaurantsNavigator}
+    />
+    <TAB.Screen name={NAV_KEY_MAP_SCREEN} component={MapScreen} />
+    <TAB.Screen name={NAV_KEY_SETTINGS_SCREEN} component={SettingScreen} />
+  </TAB.Navigator>
 );
