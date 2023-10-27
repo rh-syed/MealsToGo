@@ -18,7 +18,7 @@ export const AccountScreen = ({ navigation }) => {
       <AccountButtonsContainer>
         <Spacer size="large">
           <AuthButton
-            icon="lock-open-outline"
+            icon="location-enter"
             mode="contained"
             onPress={() => navigation.navigate(NAV_KEY_LOGIN_SCREEN)}
           >
@@ -28,7 +28,7 @@ export const AccountScreen = ({ navigation }) => {
 
         <Spacer size="large">
           <AuthButton
-            icon="location-enter"
+            icon="email-check-outline"
             mode="contained"
             onPress={() => navigation.navigate(NAV_KEY_REGISTER_SCREEN)}
           >
