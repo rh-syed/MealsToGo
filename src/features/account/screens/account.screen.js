@@ -4,6 +4,7 @@ import {
   AccountButtonsContainer,
   AccountCoverOverlay,
   AuthButton,
+  MealsToGoTitle,
 } from "../components/account.style";
 import {
   NAV_KEY_LOGIN_SCREEN,
@@ -15,6 +16,7 @@ export const AccountScreen = ({ navigation }) => {
   return (
     <AccountBackgroundImage>
       <AccountCoverOverlay />
+      <MealsToGoTitle>Meals To Go</MealsToGoTitle>
       <AccountButtonsContainer>
         <Spacer size="large">
           <AuthButton

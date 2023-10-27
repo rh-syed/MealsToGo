@@ -1,5 +1,5 @@
 import React from "react";
-import { ImageBackground } from "react-native";
+import { ImageBackground, Text } from "react-native";
 import { View } from "react-native";
 import styled from "styled-components";
 import { Button } from "react-native-paper";
@@ -30,4 +30,17 @@ export const AuthButton = styled(Button).attrs({
   color: colors.brand.primary,
 })`
   padding: ${(props) => props.theme.space[2]};
+`;
+
+export const MealsToGoTitle = styled(Text)`
+  font-size: 30px;
+  font-weight: bold;
+`;
+
+export const ErrorContainer = styled(View)`
+  max-width: 300px;
+  align-items: center;
+  align-self: center;
+  margin-top: ${(props) => props.theme.space[2]};
+  margin-bottom: ${(props) => props.theme.space[2]};
 `;

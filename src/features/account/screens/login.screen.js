@@ -4,19 +4,23 @@ import {
   AccountButtonsContainer,
   AccountCoverOverlay,
   AuthButton,
+  ErrorContainer,
+  MealsToGoTitle,
 } from "../components/account.style";
-import { TextInput } from "react-native-paper";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { AccountTextInput } from "../components/login.style";
 import { AuthenticationContext } from "../../../services/authentication/authentication.context";
 import { Text as TypographyText } from "../../../components/typography/text.component";
-export const LoginScreen = () => {
-  const { onLogin, error } = useContext(AuthenticationContext);
+
+export const LoginScreen = ({ navigation }) => {
+  const { onLogin, error, isLoading } = useContext(AuthenticationContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   return (
     <AccountBackgroundImage>
       <AccountCoverOverlay />
+      <MealsToGoTitle variant="label">Meals To Go</MealsToGoTitle>
       <AccountButtonsContainer>
         <Spacer size="large">
           <AccountTextInput
@@ -39,10 +43,11 @@ export const LoginScreen = () => {
             onChangeText={(p) => setPassword(p)}
           />
         </Spacer>
+
         {error && (
-          <Spacer size="large">
+          <ErrorContainer>
             <TypographyText variant="error"> {error}</TypographyText>
-          </Spacer>
+          </ErrorContainer>
         )}
         <Spacer size="large">
           <AuthButton
@@ -54,6 +59,16 @@ export const LoginScreen = () => {
           </AuthButton>
         </Spacer>
       </AccountButtonsContainer>
+      <Spacer size="large">
+        <AuthButton
+          mode="contained"
+          onPress={() => {
+            navigation.goBack();
+          }}
+        >
+          Back
+        </AuthButton>
+      </Spacer>
     </AccountBackgroundImage>
   );
 };
