@@ -11,6 +11,8 @@ import { Spacer } from "../../../components/spacer/spacer.component";
 import { AccountTextInput } from "../components/login.style";
 import { AuthenticationContext } from "../../../services/authentication/authentication.context";
 import { Text as TypographyText } from "../../../components/typography/text.component";
+import { ActivityIndicator } from "react-native-paper";
+import { colors } from "../../../infrastrucutre/theme/colors";
 
 export const LoginScreen = ({ navigation }) => {
   const { onLogin, error, isLoading } = useContext(AuthenticationContext);
@@ -50,13 +52,17 @@ export const LoginScreen = ({ navigation }) => {
           </ErrorContainer>
         )}
         <Spacer size="large">
-          <AuthButton
-            icon="location-enter"
-            mode="contained"
-            onPress={() => onLogin(email, password)}
-          >
-            Login
-          </AuthButton>
+          {!isLoading ? (
+            <AuthButton
+              icon="location-enter"
+              mode="contained"
+              onPress={() => onLogin(email, password)}
+            >
+              Login
+            </AuthButton>
+          ) : (
+            <ActivityIndicator animating={true} color={colors.brand.primary} />
+          )}
         </Spacer>
       </AccountButtonsContainer>
       <Spacer size="large">
