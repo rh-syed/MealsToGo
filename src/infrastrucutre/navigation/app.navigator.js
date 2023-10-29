@@ -10,6 +10,9 @@ import {
   NAV_KEY_RESTAURANTS_SCREEN,
   NAV_KEY_SETTINGS_SCREEN,
 } from "./utils/navigation-keys";
+import { FavoritesContextProvider } from "../../services/favorites/favorite.context";
+import { LocationContextProvider } from "../../services/location/location.context";
+import { RestaurantContextProvider } from "../../services/restaurants/restaurants.context";
 
 const TAB = createBottomTabNavigator();
 
@@ -38,12 +41,21 @@ const createScreenOptions = ({ route }) => {
 };
 
 export const AppNavigator = () => (
-  <TAB.Navigator screenOptions={createScreenOptions}>
-    <TAB.Screen
-      name={NAV_KEY_RESTAURANTS_SCREEN}
-      component={RestaurantsNavigator}
-    />
-    <TAB.Screen name={NAV_KEY_MAP_SCREEN} component={MapScreen} />
-    <TAB.Screen name={NAV_KEY_SETTINGS_SCREEN} component={SettingScreen} />
-  </TAB.Navigator>
+  <FavoritesContextProvider>
+    <LocationContextProvider>
+      <RestaurantContextProvider>
+        <TAB.Navigator screenOptions={createScreenOptions}>
+          <TAB.Screen
+            name={NAV_KEY_RESTAURANTS_SCREEN}
+            component={RestaurantsNavigator}
+          />
+          <TAB.Screen name={NAV_KEY_MAP_SCREEN} component={MapScreen} />
+          <TAB.Screen
+            name={NAV_KEY_SETTINGS_SCREEN}
+            component={SettingScreen}
+          />
+        </TAB.Navigator>
+      </RestaurantContextProvider>
+    </LocationContextProvider>
+  </FavoritesContextProvider>
 );
