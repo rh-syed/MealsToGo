@@ -5,3 +5,4 @@ export const NAV_KEY_REGISTER_SCREEN = "Register";
 export const NAV_KEY_RESTAURANTS_SCREEN = "Restaurants";
 export const NAV_KEY_SETTINGS_SCREEN = "Settings";
 export const NAV_KEY_MAP_SCREEN = "Map";
+export const NAV_KEY_FAVORITES_SCREEN = "Favorites";
