@@ -3,6 +3,7 @@ import {
   AccountBackgroundImage,
   AccountButtonsContainer,
   AccountCoverOverlay,
+  AnimationWrapper,
   AuthButton,
   MealsToGoTitle,
 } from "../components/account.style";
@@ -11,11 +12,21 @@ import {
   NAV_KEY_REGISTER_SCREEN,
 } from "../../../infrastrucutre/navigation/utils/navigation-keys";
 import { Spacer } from "../../../components/spacer/spacer.component";
+import LottieView from "lottie-react-native";
 
 export const AccountScreen = ({ navigation }) => {
   return (
     <AccountBackgroundImage>
       <AccountCoverOverlay />
+      <AnimationWrapper>
+        <LottieView
+          key="animation"
+          autoPlay
+          loop
+          resizeMode="cover"
+          source={require("../../../../assets/watermelon.json")}
+        />
+      </AnimationWrapper>
       <MealsToGoTitle>Meals To Go</MealsToGoTitle>
       <AccountButtonsContainer>
         <Spacer size="large">
