@@ -8,6 +8,7 @@ import {
   NAV_KEY_FAVORITES_SCREEN,
   NAV_KEY_SETTINGS_SCREEN,
 } from "./utils/navigation-keys";
+import { FavoritesScreen } from "../../features/settings/screens/favorites.screen";
 
 const SettingsStack = createStackNavigator();
 
@@ -26,7 +27,7 @@ export const SettingsNavigator = ({ route, navigation }) => {
       />
       <SettingsStack.Screen
         name={NAV_KEY_FAVORITES_SCREEN}
-        component={() => null}
+        component={FavoritesScreen}
       />
     </SettingsStack.Navigator>
   );
