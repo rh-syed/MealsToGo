@@ -15,7 +15,6 @@ const NoFavoritesArea = styled(SafeArea)`
 `;
 export const FavoritesScreen = ({ navigation }) => {
   const { favorites } = useContext(FavoritesContext);
-  console.log("FAvorites", favorites);
   return favorites.length ? (
     <SafeArea>
       <ListView
@@ -31,8 +30,7 @@ export const FavoritesScreen = ({ navigation }) => {
               }}
             >
               <Spacer position="bottom" size="large">
-                {console.log("ITEM", item)}
-                <RestaurantInfoCard restaurant={item} />
+                <RestaurantInfoCard restaurant={item.item} />
               </Spacer>
             </TouchableOpacity>
           );
