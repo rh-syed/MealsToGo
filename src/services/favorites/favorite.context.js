@@ -11,7 +11,6 @@ export const FavoritesContextProvider = ({ children }) => {
   const { user } = useContext(AuthenticationContext);
   const storeFavorites = async (value, uid) => {
     try {
-      console.log(value);
       const jsonValue = JSON.stringify(value);
       await AsyncStorage.setItem(`${FAVORITES_DB_KEY}-${uid}`, jsonValue);
     } catch (e) {

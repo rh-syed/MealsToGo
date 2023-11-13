@@ -21,7 +21,6 @@ export const RestaurantContextProvider = ({ children }) => {
         .then(restaurantsTransform)
         .then((results) => {
           setLoading(false);
-          console.log(results.length);
           setRestaurants(results);
         })
         .catch((err) => {
@@ -34,7 +33,6 @@ export const RestaurantContextProvider = ({ children }) => {
   useEffect(() => {
     if (location) {
       const locationString = `${location.lat},${location.lng}`;
-      console.log(locationString);
       retreiveRestaurants(locationString);
     }
   }, [location]);

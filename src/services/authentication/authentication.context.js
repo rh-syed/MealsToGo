@@ -11,7 +11,6 @@ export const AuthenticationContextProvider = ({ children }) => {
 
   FIREBASE_AUTH.onAuthStateChanged((usr) => {
     if (usr) {
-      console.log(usr);
       setUser(usr);
       setLoading(false);
     } else {

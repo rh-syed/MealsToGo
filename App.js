@@ -30,6 +30,9 @@ export default function App() {
   if (!oswaldLoaded || !latoLoaded) {
     return null;
   }
+
+  const isHermes = () => !!global.HermesInternal;
+  console.log("HERMES ON", isHermes());
   return (
     <>
       <ThemeProvider theme={theme}>
