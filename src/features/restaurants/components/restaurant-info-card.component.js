@@ -30,7 +30,6 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
   } = restaurant;
 
   const ratingArray = Array.from(new Array(Math.floor(rating)));
-
   return (
     <View>
       <RestaurantCard elevation={5}>
