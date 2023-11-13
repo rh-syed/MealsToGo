@@ -31,6 +31,7 @@ export default function App() {
     return null;
   }
 
+  const isHermes = () => !!global.HermesInternal;
   return (
     <>
       <ThemeProvider theme={theme}>
