@@ -25,7 +25,15 @@
         "backgroundColor": "#ffffff"
       }
     },
-    "sdkVersion": "49.0.0"
+    "sdkVersion": "49.0.0",
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera."
+        }
+      ]
+    ]
   },
   "name": "mealstogo"
 }
